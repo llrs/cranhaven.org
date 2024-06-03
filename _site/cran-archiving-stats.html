@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CRANhaven - Study: Many Archived Packages Return to CRAN</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">CRANhaven</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Articles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
+        <li>
+    <a class="dropdown-item" href="./dashboard-live.html">
+ <span class="dropdown-text">Live Dashboard: Recently Archived CRAN Packages</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./cran-archiving-stats.html">
+ <span class="dropdown-text">Study: Many Archived Packages Return to CRAN</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cranhaven/cranhaven.org/"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<p><a href="https://cranhaven.r-universe.dev/builds"><img src="https://cranhaven.r-universe.dev/badges/:total" alt="CRANhaven number of packages"></a></p>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-quality-checks" id="toc-data-quality-checks" class="nav-link active" data-scroll-target="#data-quality-checks">Data quality checks</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a>
+  <ul class="collapse">
+  <li><a href="#summary-of-how-long-it-takes-packages-to-be-unarchived" id="toc-summary-of-how-long-it-takes-packages-to-be-unarchived" class="nav-link" data-scroll-target="#summary-of-how-long-it-takes-packages-to-be-unarchived">Summary of how long it takes packages to be unarchived</a></li>
+  <li><a href="#return-time-for-packages-archived-only-once-in-their-lifetime" id="toc-return-time-for-packages-archived-only-once-in-their-lifetime" class="nav-link" data-scroll-target="#return-time-for-packages-archived-only-once-in-their-lifetime">Return time for packages archived only once in their lifetime</a></li>
+  <li><a href="#return-time-for-packages-archived" id="toc-return-time-for-packages-archived" class="nav-link" data-scroll-target="#return-time-for-packages-archived">Return time for packages archived</a></li>
+  <li><a href="#cumulative-number-of-archived-packages-over-the-years" id="toc-cumulative-number-of-archived-packages-over-the-years" class="nav-link" data-scroll-target="#cumulative-number-of-archived-packages-over-the-years">Cumulative number of archived packages over the years</a></li>
+  <li><a href="#days-to-return-versus-date-when-archived" id="toc-days-to-return-versus-date-when-archived" class="nav-link" data-scroll-target="#days-to-return-versus-date-when-archived">Days to return versus date when archived</a></li>
+  <li><a href="#distribution-of-number-of-days-for-packages-to-return-to-cran" id="toc-distribution-of-number-of-days-for-packages-to-return-to-cran" class="nav-link" data-scroll-target="#distribution-of-number-of-days-for-packages-to-return-to-cran">Distribution of number of days for packages to return to CRAN</a></li>
+  <li><a href="#packages-archived-over-all" id="toc-packages-archived-over-all" class="nav-link" data-scroll-target="#packages-archived-over-all">Packages archived over all</a></li>
+  <li><a href="#packages-resubmission" id="toc-packages-resubmission" class="nav-link" data-scroll-target="#packages-resubmission">Packages resubmission</a></li>
+  </ul></li>
+  <li><a href="#slowdown-due-to-resubmission" id="toc-slowdown-due-to-resubmission" class="nav-link" data-scroll-target="#slowdown-due-to-resubmission">Slowdown due to resubmission</a>
+  <ul class="collapse">
+  <li><a href="#packages-not-addressed-in-time" id="toc-packages-not-addressed-in-time" class="nav-link" data-scroll-target="#packages-not-addressed-in-time">Packages not addressed in time</a></li>
+  <li><a href="#archived-because-depends-on-other-packages" id="toc-archived-because-depends-on-other-packages" class="nav-link" data-scroll-target="#archived-because-depends-on-other-packages">Archived because depends on other packages</a></li>
+  <li><a href="#maintainers" id="toc-maintainers" class="nav-link" data-scroll-target="#maintainers">Maintainers</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/cranhaven/cranhaven.org/blob/main/cran-archiving-stats.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/cranhaven/cranhaven.org/edit/main/cran-archiving-stats.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/cranhaven/cranhaven.org/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Study: Many Archived Packages Return to CRAN</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>CRAN packages are archived all the time, but a large portion of them eventually gets fixed and return to CRAN. Using public data available from different resources<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> on CRAN, we have found that 36% of the archived packages get unarchived at some point <span class="citation" data-cites="revilla_2022">(<a href="#ref-revilla_2022" role="doc-biblioref">Revilla 2022</a>)</span>. The median time for these packages to return to CRAN is ~33 days.</p>
+<section id="data-quality-checks" class="level2">
+<h2 class="anchored" data-anchor-id="data-quality-checks">Data quality checks</h2>
+<p>First of all we will make some checks on the data to be sure of the conclusions and inferences based on it.</p>
+<p>There are 96 packages unarchived more times than archived. This could be because several reasons:</p>
+<ul>
+<li>one of the previous issues with package lead to its removal.</li>
+<li>the term used for annotating an event was different (Orphaned instead of archived).</li>
+</ul>
+<p>We also check what is the first record that CRAN has of a package.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">First action</th>
+<th style="text-align: right;">Packages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">orphaned</td>
+<td style="text-align: right;">85</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">removed</td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">archived</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">renamed</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>First recorded action taken of a package.</strong> Looking by date most packages’ first action recorded is being added to CRAN. For some it isn’t.</p>
+</div>
+</div>
+<p>If the first action recorded for a package is not its inclusion this can indicate some problems on the data that could lead to problems on the conclusions.</p>
+<p>A special mention to the removed action: This action is usually reserved to copyright issues and it is normal that it is the first action in record for a package as previous records are removed too from CRAN (package source code).</p>
+<p>By contrast, it isn’t expected that there is no record on CRAN of accepted packages, this could mean that a package was renamed or that it was removed. This happens for 134 packages.</p>
+<p>Other possible explanations for this: Maintainers of the packages might have an exchange with the CRAN volunteers that lead to unarchiving the package without new accepted packages. It could also show a missing entry in the CRAN archives.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption><strong>Events per package in the same date.</strong> Most packages have just one action per day. Unarchiving usually requires a new package’s version accepted the same day.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Multiple actions</th>
+<th style="text-align: center;">Events</th>
+<th style="text-align: center;">% events</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">59631</td>
+<td style="text-align: center;">87%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8971</td>
+<td style="text-align: center;">13%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">331</td>
+<td style="text-align: center;">0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>In total there are 419 unarchived events that doesn’t have the corresponding accepted package included event (on the same date). This affects 407 packages out of 9242 (4%).</p>
+<p>On the contrary there are some events that are not expected to happen on the same day:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption><strong>Actions that happend on the same date in a given package.</strong> Mostly a new acceptance lead to a package being unarchived. In some ocasions other actions.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Multiple actions</th>
+<th style="text-align: center;">Events</th>
+<th style="text-align: center;">%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">accepted &amp; unarchived</td>
+<td style="text-align: center;">4279</td>
+<td style="text-align: center;">93.367%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">accepted &amp; orphaned</td>
+<td style="text-align: center;">121</td>
+<td style="text-align: center;">2.640%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">accepted &amp; archived &amp; unarchived</td>
+<td style="text-align: center;">109</td>
+<td style="text-align: center;">2.378%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">accepted &amp; archived</td>
+<td style="text-align: center;">63</td>
+<td style="text-align: center;">1.375%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">archived &amp; unarchived</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.153%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">accepted &amp; removed</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.065%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">accepted &amp; orphaned &amp; unarchived</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.022%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Those with 3 different actions imply multiple revisions from the CRAN team the same day.</p>
+<p>In total there are 616 different packages identified with problematic records/processing from 0. Some of them were found that had at two or more different issues 118. Depending on which issue they might be corrected to the best of our abilities or simply discarded depending on the issue and question we are trying to answer.</p>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>Now that we have looked into the data quality we can start trying to answer some questions:</p>
+<section id="summary-of-how-long-it-takes-packages-to-be-unarchived" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-how-long-it-takes-packages-to-be-unarchived">Summary of how long it takes packages to be unarchived</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption><strong>Table with summary statistics of time to get back to CRAN after being archived.</strong> Median time below 33 days.</caption>
+<colgroup>
+<col style="width: 19%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Times archived</th>
+<th style="text-align: center;">Packages</th>
+<th style="text-align: center;">Min.</th>
+<th style="text-align: center;">1st Qu.</th>
+<th style="text-align: center;">Median</th>
+<th style="text-align: center;">Mean</th>
+<th style="text-align: center;">3rd Qu.</th>
+<th style="text-align: center;">Max.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3319</td>
+<td style="text-align: center;">1 days</td>
+<td style="text-align: center;">9 days</td>
+<td style="text-align: center;">33 days</td>
+<td style="text-align: center;">126 days</td>
+<td style="text-align: center;">125 days</td>
+<td style="text-align: center;">3292 days</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">654</td>
+<td style="text-align: center;">1 days</td>
+<td style="text-align: center;">8 days</td>
+<td style="text-align: center;">27 days</td>
+<td style="text-align: center;">93 days</td>
+<td style="text-align: center;">90 days</td>
+<td style="text-align: center;">1949 days</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">169</td>
+<td style="text-align: center;">1 days</td>
+<td style="text-align: center;">7 days</td>
+<td style="text-align: center;">25 days</td>
+<td style="text-align: center;">89 days</td>
+<td style="text-align: center;">77 days</td>
+<td style="text-align: center;">882 days</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">1 days</td>
+<td style="text-align: center;">4 days</td>
+<td style="text-align: center;">17 days</td>
+<td style="text-align: center;">69 days</td>
+<td style="text-align: center;">66 days</td>
+<td style="text-align: center;">652 days</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">1 days</td>
+<td style="text-align: center;">3 days</td>
+<td style="text-align: center;">13 days</td>
+<td style="text-align: center;">28 days</td>
+<td style="text-align: center;">48 days</td>
+<td style="text-align: center;">93 days</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">3 days</td>
+<td style="text-align: center;">17 days</td>
+<td style="text-align: center;">27 days</td>
+<td style="text-align: center;">73 days</td>
+<td style="text-align: center;">63 days</td>
+<td style="text-align: center;">254 days</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2 days</td>
+<td style="text-align: center;">2 days</td>
+<td style="text-align: center;">2 days</td>
+<td style="text-align: center;">2 days</td>
+<td style="text-align: center;">2 days</td>
+<td style="text-align: center;">2 days</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/plot-times-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>summary statistics of time to get back to CRAN after being archived.</strong> Same as the previous table but in graphical format.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="return-time-for-packages-archived-only-once-in-their-lifetime" class="level3">
+<h3 class="anchored" data-anchor-id="return-time-for-packages-archived-only-once-in-their-lifetime">Return time for packages archived only once in their lifetime</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/plot-ecdf-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Empirical distribution of the time it takes packages to get unarchived as a function of number of days since being archived on CRAN for the first time.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="return-time-for-packages-archived" class="level3">
+<h3 class="anchored" data-anchor-id="return-time-for-packages-archived">Return time for packages archived</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/plot-ecdf-all-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Empirical distribution of the time it takes packages to get unarchived as a function of number of days since being archived on CRAN.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/return-time3-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Packages archived and date since the previous release.</strong> The color indicates if a given package was archived multiple times: the more times it has been archived the lighter the point is.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="cumulative-number-of-archived-packages-over-the-years" class="level3">
+<h3 class="anchored" data-anchor-id="cumulative-number-of-archived-packages-over-the-years">Cumulative number of archived packages over the years</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/plot-cumulative-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Packages actions done by the CRAN Team over time</strong>. The CRAN Team may take different actions for packages currently on e.g.&nbsp;archived (solid red), orphaned (dotted yellow), removed (dashed green), renamed (dashed blue), and unarchived (dotted purple). Presented is the cumulative number of such events over time on the linear (left) and the logarithmic (right) scale.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="days-to-return-versus-date-when-archived" class="level3">
+<h3 class="anchored" data-anchor-id="days-to-return-versus-date-when-archived">Days to return versus date when archived</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/plot-events-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Packages being archived and returning to CRAN.</strong> Each data point represents when a CRAN package was archived (horizontal axis) and when it was unarchived (vertical axis). If more than one package was archive and unarchived on the same dates, the corresponding data point is presented as a larger disk. The gray dashed line is the event horizon.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="distribution-of-number-of-days-for-packages-to-return-to-cran" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-of-number-of-days-for-packages-to-return-to-cran">Distribution of number of days for packages to return to CRAN</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/plot-distribution-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Histogram of how long packages remain archived on CRAN</strong>. Each bar represents a week. Most packages return to CRAN within a month.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="packages-archived-over-all" class="level3">
+<h3 class="anchored" data-anchor-id="packages-archived-over-all">Packages archived over all</h3>
+<p>There have been at least 9047 packages archived from CRAN. From the total of 22895 in its whole history. Which results in 40% of all packages ever in CRAN got at one point archived.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/packages-archived-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Packages are archived multiple times</strong>. Packages archived are sometimes back on CRAN and archived again.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Most packages are not archived, but if they are mostly archived once. This is probably because 50% of those archived never get back to CRAN.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/packages-archived-unarchived-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Most packages are not back to CRAN after being archived</strong>. Packages that got archived sometimes go back on CRAN.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Approximately 38% packages gets back on CRAN.</p>
+</section>
+<section id="packages-resubmission" class="level3">
+<h3 class="anchored" data-anchor-id="packages-resubmission">Packages resubmission</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/archived-type-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Resubmission process by date of being archived.</strong> Events in black are those we cannot say if they were not re-submitted or rejected.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Notice how there are some packages that submitted a new version to CRAN after 2020-09-12, but where archived long before (those that are in red before that date). Those maintainers might need help to get their packages back on CRAN.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/archived2resubmit-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Submissions are slightly faster for those that are accepted.</strong> Percentage of packages that are submitted before a given time.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="slowdown-due-to-resubmission" class="level1">
+<h1>Slowdown due to resubmission</h1>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Back to CRAN?</th>
+<th style="text-align: center;">Events</th>
+<th style="text-align: center;">%</th>
+<th style="text-align: center;">% submitted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Never resubmitted</td>
+<td style="text-align: center;">2555</td>
+<td style="text-align: center;">49.2%</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Accepted</td>
+<td style="text-align: center;">2500</td>
+<td style="text-align: center;">48.1%</td>
+<td style="text-align: center;">95%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Not fit</td>
+<td style="text-align: center;">143</td>
+<td style="text-align: center;">2.8%</td>
+<td style="text-align: center;">5%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Based on a the latest data available, which is NA of the archived packages, slightly more than half of the packages try to get back to CRAN. Those that try almost all of them eventually get back to CRAN.</p>
+<p>But how fast is the process of being back on CRAN?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/speed-resubmission-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Resubmission delay: % spend in review after submitting a new version till it is accepted.</strong> Only includes packages that were accepted one day later than submitted (to avoid dividing by 0)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Most packages that get back to CRAN are accepted soon after submitting the new version fixing the problems of being archived. But some (~ 21%) spend most of the time trying to pass checks to comply with CRAN policies: maybe trying to fix issues detected on submission or waiting for CRAN maintainers feedback.</p>
+<section id="packages-not-addressed-in-time" class="level3">
+<h3 class="anchored" data-anchor-id="packages-not-addressed-in-time">Packages not addressed in time</h3>
+<p>Packages are archived because they are not addressed/corrected in time. If we look in more detail on this packages we see there are 5127 packages that failed to correct in time. Most of them where archived once but some of them (986) were archived multiple times.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/failed-check-archived-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Packages archived because problems were not fixed on time are mostly back.</strong>. Packages that got archived because maintainers couldn’t fix the packages on time got back on time</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-not-fixed" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-not-fixed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: <strong>Tally of reasons of packages not fixed</strong>. Many packages are not fixed and the maintainer address.
+</figcaption>
+<div aria-describedby="tbl-not-fixed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 27%">
+<col style="width: 24%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Not fixed</th>
+<th style="text-align: center;">Dependencies</th>
+<th style="text-align: center;">Maintainer address</th>
+<th style="text-align: center;">Policy violation</th>
+<th style="text-align: center;">Packages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">5774</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">1445</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">1256</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">639</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">228</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">FALSE</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>The first cause of archiving is packages not fixed, the second cause is not clear as it seems a mix o circumstances and difficulties parsing the cause. The third cause of archiving is due to a package it depends being archived and the fourth because the package didn’t comply with CRAN’s policy. The fifth most common reason is that the email address of the maintainer fails to receive emails.</p>
+<section id="linked-to-r-releases" class="level4">
+<h4 class="anchored" data-anchor-id="linked-to-r-releases">Linked to R-releases?</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/r-versions-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>More packages are archived the closer the release date is.</strong></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/r-versions2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Packages are usually archived weeks after a release.</strong></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/r-versions3-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Packages tend to be archived right before a release or after it but not in the middle of releases.</strong></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Only in 2022 and 2023 there has been a clear trend for packages that are archived closer to next release and after release respectively:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/r- version4-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Trend by year of packcages being archived.</strong> The closer to the left the closer they are after a release, the more to the right the closer they are archived before a R-release.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="age-of-archival" class="level4">
+<h4 class="anchored" data-anchor-id="age-of-archival">Age of archival</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/aged-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Time since being accepted to being archived.</strong> Most packages are archived soon after being accepted</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/aged-2.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Time since being accepted to being archived.</strong> Most packages are archived soon after being accepted</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/aged-public-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Time since last version till the package is archived.</strong> Most packages are archived shortly after a release, which might indicate that problems are only found after being accepted via additional checks not available to maintainers.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/aged-public1-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Age of packages being archived.</strong> Older packages are increasingly being archived but not at the same rate time passes.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/aged-public2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Time since previous releases of packages being archived.</strong> Almost a constant rate except on a a specific moments.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="archived-because-depends-on-other-packages" class="level3">
+<h3 class="anchored" data-anchor-id="archived-because-depends-on-other-packages">Archived because depends on other packages</h3>
+<p>When a package is going to be archived CRAN sends an email to the maintainer which package in trouble and all the packages maintainers that depend on it. This often results in people stepping up and fixing the package. When this doesn’t happen, packages will be archived together with their dependency.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption><strong>Dependencies impact</strong> Most packages archived result in another package archived.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Affected packages</th>
+<th style="text-align: center;">Times</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">437</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">145</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">81</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">33</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The packages that affected more packages lead to 18 packages archived.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/depending-on2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Archived packages due to a dependency often come back.</strong> In absolute numbers (left) and in percentage (right). Many packages that are archived result in another package being archived, which are usually back to CRAN.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Those packages that were archived were mostly back on CRAN.</p>
+</section>
+<section id="maintainers" class="level3">
+<h3 class="anchored" data-anchor-id="maintainers">Maintainers</h3>
+<section id="failing-email" class="level4">
+<h4 class="anchored" data-anchor-id="failing-email">Failing email</h4>
+<p>Sometimes the problem is with maintainer’s email.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cran-archiving-stats_files/figure-html/maintainers-emails-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><strong>Packages with not responsive maintainer address are archived later after the last version.</strong> The line indicates the aproximation of these two variables.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>As the time increase between being archived and the failing email, this seems to indicate that maintainers are now more careful with the email given.</p>
+
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-revilla_2022" class="csl-entry" role="listitem">
+Revilla, Lluís. 2022. <span>“Reasons Why Packages Are Archived on <span>CRAN</span>.”</span> Personal blog. <a href="https://llrs.dev/post/2021/12/07/reasons-cran-archivals/">https://llrs.dev/post/2021/12/07/reasons-cran-archivals/</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Data sources used are <code>tools:::CRAN_current_db()</code>, <code>tools:::CRAN_archive_db()</code>, and <a href="https://cran.r-project.org/src/contrib/PACKAGES.in">PACKAGES.in</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cranhaven/cranhaven.org/blob/main/cran-archiving-stats.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/cranhaven/cranhaven.org/edit/main/cran-archiving-stats.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/cranhaven/cranhaven.org/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
